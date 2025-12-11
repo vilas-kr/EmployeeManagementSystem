@@ -14,13 +14,18 @@ public class Main {
             System.out.println("Employee present");
         }
 
-        int wage = dailyEmployeeWage();
-        System.out.println("Daily wage for 8 hours is " + wage);
+
+        int workHoursPerDay = 8; //Full time employee
+        int wage = dailyEmployeeWage(workHoursPerDay);
+        System.out.println("Daily wage for Full Time Employee is " + wage);
+
+        workHoursPerDay = 4; //Part time employee
+        wage = dailyEmployeeWage(workHoursPerDay);
+        System.out.println("Daily wage for Part Time Employee is " + wage);
     }
 
-    public static int dailyEmployeeWage(){
+    public static int dailyEmployeeWage(int workHoursPerDay){
         int wagePerHour = 20;
-        int workHoursPerDay = 8;
         return wagePerHour * workHoursPerDay;
     }
 }
