@@ -11,13 +11,16 @@ public class Main {
         employee1.setName("Vilas");
         employee1.markWorkHours(1,8);
         employee1.markWorkHours(2, 12);
-        System.out.println("employee monthly wage is : " + employee1.calculateMonthlyWage(10, 3, 25));
 
         Employee employee2 = new Employee();
         employee2.setName("Narayan");
         employee2.markWorkHours(1,10);
         employee2.markWorkHours(2, 9);
         employee2.markWorkHours(3, 12);
-        System.out.println("employee monthly wage is : " + employee2.calculateMonthlyWage(20, 1, 35));
+
+        EmpWageBuilder company = new EmpWageBuilder(10, 15, 100);
+        company.addEmployee(employee1);
+        company.addEmployee(employee2);
+        System.out.println("Total company wage is : " + company.calculateTotalWage());
     }
 }
