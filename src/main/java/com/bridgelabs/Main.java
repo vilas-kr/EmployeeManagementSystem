@@ -42,6 +42,14 @@ public class Main {
         return workingDays * dailyEmployeeWage(workHoursPerDay);
     }
 
+    public static int monthlyEmployeeWage(int workHoursPerDay, int totalWorkHours, int totalWorkingDays){
+        if(totalWorkHours >= 100 || totalWorkingDays >= 20){
+            return totalWorkingDays * dailyEmployeeWage(workHoursPerDay);
+        }else{
+            return -1;
+        }
+    }
+
     public static void checkAttendance(){
         int present = (int) (Math.random() * 10);
 
