@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 public class EmpWageBuilder {
 
+    private String name;
     private int wagePerHour;
     private int totalWorkingDaysPerMonth;
     private int totalWorkingHours;
