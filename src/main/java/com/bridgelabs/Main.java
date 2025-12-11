@@ -37,6 +37,11 @@ public class Main {
         return wagePerHour * workHoursPerDay;
     }
 
+    public static int monthlyEmployeeWage(int workHoursPerDay){
+        int workingDays = 20;
+        return workingDays * dailyEmployeeWage(workHoursPerDay);
+    }
+
     public static void checkAttendance(){
         int present = (int) (Math.random() * 10);
 
