@@ -1,26 +1,10 @@
 package com.bridgelabs;
 
-import java.util.HashMap;
-import java.util.Map;
+public interface CompanyEmpWage {
 
-public class CompanyEmpWage {
+    EmpWageBuilder addCompany(String name, EmpWageBuilder empWageBuilder);
 
-    private Map<String, EmpWageBuilder> companies;
+    EmpWageBuilder removeCompany(String name);
 
-    public CompanyEmpWage() {
-        companies = new HashMap<String, EmpWageBuilder>();
-    }
-
-    public EmpWageBuilder addCompany(String name, EmpWageBuilder empWageBuilder) {
-        companies.put(name, empWageBuilder);
-        return empWageBuilder;
-    }
-
-    public EmpWageBuilder removeCompany(String name) {
-        return companies.remove(name);
-    }
-
-    public EmpWageBuilder getCompany(String name) {
-        return companies.get(name);
-    }
+    EmpWageBuilder getCompany(String name);
 }
