@@ -7,23 +7,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Emploee {
+public class Employee {
 
+    private String name;
     private boolean[] attendance;
     private int[] workingHours;
-    private int wagePerHour;
 
-    public Emploee(){
+    public Employee(){
         attendance = new boolean[31];
         workingHours = new int[31];
-        wagePerHour = 20;
     }
 
-    public void markAttandance(int day, boolean attendance){
-        this.attendance[day] = attendance;
+    public void markAttandance(int day){
+        this.attendance[day] = true;
     }
 
     public void markWorkHours(int day, int workingHours){
+        this.attendance[day] = true;
         this.workingHours[day] = workingHours;
     }
 
@@ -39,9 +39,9 @@ public class Emploee {
         return totalWorkingHours;
     }
 
-    public int calculateMontlyWage(){
-        if(calculateTotalWorkingHours() >= 100){
-            return wagePerHour * 100;
+    public int calculateMonthlyWage(int wagePerHour, int totalWorkingDaysPerMonth, int totalWorkingHours){
+        if(calculateTotalWorkingHours() >= totalWorkingHours){
+            return wagePerHour * totalWorkingHours;
         }
         int totalWorkingDays = 0;
         int totalWage = 0;
@@ -49,7 +49,7 @@ public class Emploee {
             if(workHour > 0){
                 totalWorkingDays++;
             }
-            if(totalWorkingDays > 20){
+            if(totalWorkingDays > totalWorkingDaysPerMonth){
                 return totalWage;
             }
             totalWage +=  workHour *  wagePerHour;
