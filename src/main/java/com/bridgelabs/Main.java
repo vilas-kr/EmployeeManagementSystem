@@ -13,5 +13,14 @@ public class Main {
         }else{
             System.out.println("Employee present");
         }
+
+        int wage = dailyEmployeeWage();
+        System.out.println("Daily wage for 8 hours is " + wage);
+    }
+
+    public static int dailyEmployeeWage(){
+        int wagePerHour = 20;
+        int workHoursPerDay = 8;
+        return wagePerHour * workHoursPerDay;
     }
 }
