@@ -14,8 +14,8 @@ public class Emploee {
     private int wagePerHour;
 
     public Emploee(){
-        attendance = new boolean[30];
-        workingHours = new int[30];
+        attendance = new boolean[31];
+        workingHours = new int[31];
         wagePerHour = 20;
     }
 
@@ -31,16 +31,6 @@ public class Emploee {
         return attendance[day];
     }
 
-    public int calculateTotalAttendance(){
-        int totalAttendance = 0;
-        for(boolean attendance: attendance){
-            if(attendance){
-                totalAttendance++;
-            }
-        }
-        return totalAttendance;
-    }
-
     public int calculateTotalWorkingHours(){
         int totalWorkingHours = 0;
         for(int hours : workingHours){
@@ -50,11 +40,21 @@ public class Emploee {
     }
 
     public int calculateMontlyWage(){
-        if(calculateTotalAttendance() >= 20 ||  calculateTotalWorkingHours() >= 100){
-            return calculateTotalWorkingHours() *  wagePerHour;
-        }else{
-            return -1;
+        if(calculateTotalWorkingHours() >= 100){
+            return wagePerHour * 100;
         }
+        int totalWorkingDays = 0;
+        int totalWage = 0;
+        for(int workHour :  workingHours){
+            if(workHour > 0){
+                totalWorkingDays++;
+            }
+            if(totalWorkingDays > 20){
+                return totalWage;
+            }
+            totalWage +=  workHour *  wagePerHour;
+        }
+        return totalWage;
     }
 
 }
