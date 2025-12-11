@@ -38,4 +38,10 @@ public class CompanyEmpWageImpl implements CompanyEmpWage {
         }
         return null;
     }
+
+    //return company total wage by the company name
+    public int getTotalWageByCompany(String name) {
+        EmpWageBuilder empWageBuilder = getCompany(name);
+        return empWageBuilder.calculateTotalWage();
+    }
 }
